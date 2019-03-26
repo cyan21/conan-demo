@@ -25,8 +25,8 @@ class ArtywrapperConan(ConanFile):
         # properly
         self.run("cat conan-demo/arty-wrapper/src/CMakeLists.txt")
         tools.replace_in_file("conan-demo/arty-wrapper/src/CMakeLists.txt", "project(arty-wrapper)", '''project(arty-wrapper)
-#include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-#conan_basic_setup()''')
+include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+conan_basic_setup()''')
         self.run("cat conan-demo/arty-wrapper/src/CMakeLists.txt")
 
     def build(self):
