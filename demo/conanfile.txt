@@ -1,5 +1,5 @@
 [requires]
-arty-wrapper/0.1@yann/testing 
+arty-wrapper/0.2@yann/testing 
 
 [generators]
 cmake
