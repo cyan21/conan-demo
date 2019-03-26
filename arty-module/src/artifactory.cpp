@@ -7,6 +7,7 @@ Artifactory::Artifactory(string u, string usr, string p) {
 }
 
 void Artifactory::show() {
+  cout<<"[Arty-module] some info : " << endl;
   cout<<"url : " << url << endl;
   cout<<"user : " << user << endl;
   cout<<"pass : " << pass << endl;

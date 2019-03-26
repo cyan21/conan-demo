@@ -2,11 +2,11 @@ from conans import ConanFile, CMake, tools
 
 
 class ArtyConan(ConanFile):
-    name = "Arty"
+    name = "arty"
     version = "0.1"
     license = "MIT"
     author = "yann chaysinh"
-    url = "<Package recipe repository url here, for issues about the package>"
+    url = "https://github.com/cyan21/conan-demo"
     description = "Artifactory wrapper"
     topics = ("Artifactory", "demo")
     settings = "os", "compiler", "build_type", "arch"
@@ -16,8 +16,9 @@ class ArtyConan(ConanFile):
     exports_sources = "src/*"
 
     def source(self):
-#        self.run("git clone https://github.com/memsharded/hello.git")
-#        self.run("cd hello && git checkout static_shared")
+        self.run("git clone https://github.com/cyan21/conan-demo.git")
+        self.run("cd arty-module")
+
         # This small hack might be useful to guarantee proper /MT /MD linkage
         # in MSVC if the packaged project doesn't have variables to set it
         # properly

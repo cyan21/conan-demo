@@ -5,8 +5,8 @@ class ArtywrapperConan(ConanFile):
     name = "arty-wrapper"
 #    version = "0.1"
     license = "MIT"
-    author = "yann chaysinh <yannc@jfrog>"
-    url = "<Package recipe repository url here, for issues about the package>"
+    author = "yann chaysinh"
+    url = "https://github.com/cyan21/conan-demo"
     description = "wrapper"
     topics = ("artifactory", "wrapper", "yann")
     settings = "os", "compiler", "build_type", "arch"
@@ -18,8 +18,8 @@ class ArtywrapperConan(ConanFile):
 
 
     def source(self):
-#        self.run("git clone https://github.com/memsharded/hello.git")
-#        self.run("cd hello && git checkout static_shared")
+        self.run("git clone https://github.com/cyan21/conan-demo.git")
+        self.run("cd arty-wrapper")
         # This small hack might be useful to guarantee proper /MT /MD linkage
         # in MSVC if the packaged project doesn't have variables to set it
         # properly
