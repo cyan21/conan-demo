@@ -30,7 +30,7 @@ class ArtywrapperConan(ConanFile):
 
     def build(self):
         cmake = CMake(self)
-        cmake.configure(source_folder="conan-demo/arty-wrapper/src")
+        cmake.configure(source_folder="src")
         cmake.build()
 
         # Explicit way:
