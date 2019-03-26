@@ -3,7 +3,7 @@ from conans import ConanFile, CMake, tools
 
 class ArtyConan(ConanFile):
     name = "arty"
-    version = "0.1"
+#    version = "0.1"
     license = "MIT"
     author = "yann chaysinh"
     url = "https://github.com/cyan21/conan-demo"
@@ -17,19 +17,19 @@ class ArtyConan(ConanFile):
 
     def source(self):
         self.run("git clone https://github.com/cyan21/conan-demo.git")
-        self.run("cd arty-module")
+#        self.run("cd arty-module")
 
         # This small hack might be useful to guarantee proper /MT /MD linkage
         # in MSVC if the packaged project doesn't have variables to set it
         # properly
-        tools.replace_in_file("src/CMakeLists.txt", "project(artifactory)",
-                              '''project(libart)
-include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-conan_basic_setup()''')
+#        tools.replace_in_file("src/CMakeLists.txt", "project(artifactory)",
+#                              '''project(libart)
+#include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+#conan_basic_setup()''')
 
     def build(self):
         cmake = CMake(self)
-        cmake.configure(source_folder="src")
+        cmake.configure(source_folder="conan-demo/arty-module/src")
         cmake.build()
 
         # Explicit way:
