@@ -19,20 +19,18 @@ class ArtywrapperConan(ConanFile):
 
     def source(self):
         self.run("git clone https://github.com/cyan21/conan-demo.git")
-        self.run("cd conan-demo/arty-wrapper")
+#        self.run("cd conan-demo/arty-wrapper")
+
         # This small hack might be useful to guarantee proper /MT /MD linkage
         # in MSVC if the packaged project doesn't have variables to set it
         # properly
-        self.run("cat conan-demo/arty-wrapper/src/CMakeLists.txt")
-        tools.replace_in_file("conan-demo/arty-wrapper/src/CMakeLists.txt", "project(arty-wrapper)", '''project(arty-wrapper)
-include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-conan_basic_setup()''')
-        self.run("cat conan-demo/arty-wrapper/src/CMakeLists.txt")
+#        tools.replace_in_file("conan-demo/arty-wrapper/src/CMakeLists.txt", "project(arty-wrapper)", '''project(arty-wrapper)
+#include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+#conan_basic_setup()''')
 
     def build(self):
         cmake = CMake(self)
         cmake.configure(source_folder="conan-demo/arty-wrapper/src")
-#        cmake.configure(source_folder="src")
         cmake.build()
 
         # Explicit way:
