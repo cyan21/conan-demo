@@ -29,7 +29,7 @@ class ArtyConan(ConanFile):
 
     def build(self):
         cmake = CMake(self)
-        cmake.configure(source_folder="conan-demo/arty-module/src")
+        cmake.configure(source_folder="src")
         cmake.build()
 
         # Explicit way:
